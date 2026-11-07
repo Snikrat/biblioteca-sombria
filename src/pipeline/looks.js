@@ -148,6 +148,39 @@ export const LOOKS = {
     },
     tone: { knee: 0.85, fadeTop: 0.003, shadowDesat: 0, skinSatRelief: 0.2, warmNeutralize: 0 },
   },
+
+  'penumbra': {
+    name: 'Penumbra',
+    tagline: 'Fim de tarde sem luz, azul-ardósia e silêncio.',
+    swatch: ['#0c1217', '#1f282d', '#344045', '#515d61', '#8d8a83'],
+    presets: {
+      suave:    { exposure: -0.35, contrast: 4,  saturation: -30, temperature: -6,  tint: -1, highlights: -30, shadows: 0,  sharpness: 8,  grain: 8,  fade: 3,  gradeStrength: 40, skinProtect: 55, adaptive: true },
+      original: { exposure: -0.55, contrast: 6,  saturation: -45, temperature: -10, tint: -2, highlights: -45, shadows: 0,  sharpness: 10, grain: 10, fade: 4, gradeStrength: 60, skinProtect: 50, adaptive: true },
+      intenso:  { exposure: -0.75, contrast: 8,  saturation: -60, temperature: -14, tint: -3, highlights: -60, shadows: 0,  sharpness: 12, grain: 14, fade: 5, gradeStrength: 85, skinProtect: 45, adaptive: true },
+    },
+    bands: [
+      band(0, 28, -0.20),                // vermelho contido
+      band(30, 22, -0.20, -0.05),        // laranja / pele apagada
+      band(58, 26, -0.60, -0.05),        // amarelo quase some
+      band(120, 50, -0.40, -0.08, 25),   // verde → azul-petróleo
+      band(222, 40, -0.10, -0.10),       // azul
+      band(275, 30, -0.30),              // roxo
+      band(322, 30, -0.20),              // magenta: o rosa sobrevive apagado
+    ],
+    grading: {
+      shadows: [-0.010, 0.002, 0.012], mids: [-0.006, 0, 0.006], highlights: [0, 0, 0],
+      // Escala medida na foto de referência: ardósia fria, brancos baixos e levemente quentes
+      map: [
+        [0.00, 8, 14, 19],
+        [0.20, 30, 40, 47],
+        [0.45, 66, 80, 87],
+        [0.70, 100, 112, 116],
+        [1.00, 145, 145, 140],
+      ],
+      mapMix: 0.75,
+    },
+    tone: { knee: 0.70, fadeTop: 0.004, shadowDesat: 0, skinSatRelief: 0.4, warmNeutralize: 0.4 },
+  },
 };
 
 export const DEFAULT_LOOK = 'biblioteca-sombria';

@@ -1,0 +1,22 @@
+{
+  "filtro": "Penumbra",
+  "filtroId": "penumbra",
+  "versao": 2,
+  "nome": "Original",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": -0.55,
+    "contrast": 6,
+    "saturation": -45,
+    "temperature": -10,
+    "tint": -2,
+    "highlights": -45,
+    "shadows": 0,
+    "sharpness": 10,
+    "grain": 10,
+    "fade": 4,
+    "gradeStrength": 60,
+    "skinProtect": 50,
+    "adaptive": true
+  }
+}

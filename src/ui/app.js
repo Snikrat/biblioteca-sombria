@@ -1,5 +1,5 @@
 /**
- * Filtros fotográficos (Biblioteca Sombria, Âmbar 1979, Sala Escura, Neon Garoa, Ultravioleta) — interface.
+ * Filtros fotográficos (Biblioteca Sombria, Âmbar 1979, Sala Escura, Neon Garoa, Ultravioleta, Penumbra) — interface.
  */
 import {
   analyze, adaptFactor, describeExposure, buildLUT, processImage,

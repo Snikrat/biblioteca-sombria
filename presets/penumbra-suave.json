@@ -1,0 +1,22 @@
+{
+  "filtro": "Penumbra",
+  "filtroId": "penumbra",
+  "versao": 2,
+  "nome": "Suave",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": -0.35,
+    "contrast": 4,
+    "saturation": -30,
+    "temperature": -6,
+    "tint": -1,
+    "highlights": -30,
+    "shadows": 0,
+    "sharpness": 8,
+    "grain": 8,
+    "fade": 3,
+    "gradeStrength": 40,
+    "skinProtect": 55,
+    "adaptive": true
+  }
+}

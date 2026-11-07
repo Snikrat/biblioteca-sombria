@@ -116,3 +116,10 @@ test('Ultravioleta: tudo vira violeta, do escuro ao claro', () => {
     assert.ok(b > r && r > g, `violeta esperado para ${rgb}`);
   }
 });
+
+test('Penumbra: escuro, frio e com brancos baixos', () => {
+  const white = lookColor('penumbra', 1, 1, 1), mid = lookColor('penumbra', 0.5, 0.5, 0.5);
+  assert.ok(Math.max(...white) < 0.75, 'brancos contidos');
+  assert.ok(mid[2] > mid[0], 'meios-tons frios');
+  assert.ok(lum(mid) < 0.4, 'imagem escura');
+});

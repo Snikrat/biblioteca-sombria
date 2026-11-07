@@ -1,0 +1,22 @@
+{
+  "filtro": "Penumbra",
+  "filtroId": "penumbra",
+  "versao": 2,
+  "nome": "Intenso",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": -0.75,
+    "contrast": 8,
+    "saturation": -60,
+    "temperature": -14,
+    "tint": -3,
+    "highlights": -60,
+    "shadows": 0,
+    "sharpness": 12,
+    "grain": 14,
+    "fade": 5,
+    "gradeStrength": 85,
+    "skinProtect": 45,
+    "adaptive": true
+  }
+}
