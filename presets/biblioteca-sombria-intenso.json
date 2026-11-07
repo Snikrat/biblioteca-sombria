@@ -1,0 +1,22 @@
+{
+  "filtro": "Biblioteca Sombria",
+  "filtroId": "biblioteca-sombria",
+  "versao": 2,
+  "nome": "Intenso",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": -0.3,
+    "contrast": 35,
+    "saturation": -70,
+    "temperature": -12,
+    "tint": -6,
+    "highlights": -30,
+    "shadows": -50,
+    "sharpness": 18,
+    "grain": 18,
+    "fade": 8,
+    "gradeStrength": 85,
+    "skinProtect": 65,
+    "adaptive": true
+  }
+}

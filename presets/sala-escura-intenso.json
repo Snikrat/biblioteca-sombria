@@ -1,0 +1,22 @@
+{
+  "filtro": "Sala Escura",
+  "filtroId": "sala-escura",
+  "versao": 2,
+  "nome": "Intenso",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": -0.25,
+    "contrast": 60,
+    "saturation": -96,
+    "temperature": 0,
+    "tint": 0,
+    "highlights": -15,
+    "shadows": -45,
+    "sharpness": 25,
+    "grain": 32,
+    "fade": 4,
+    "gradeStrength": 80,
+    "skinProtect": 45,
+    "adaptive": true
+  }
+}

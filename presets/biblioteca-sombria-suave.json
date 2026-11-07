@@ -1,0 +1,22 @@
+{
+  "filtro": "Biblioteca Sombria",
+  "filtroId": "biblioteca-sombria",
+  "versao": 2,
+  "nome": "Suave",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": -0.1,
+    "contrast": 15,
+    "saturation": -35,
+    "temperature": -5,
+    "tint": -2,
+    "highlights": -12,
+    "shadows": -20,
+    "sharpness": 10,
+    "grain": 8,
+    "fade": 4,
+    "gradeStrength": 40,
+    "skinProtect": 75,
+    "adaptive": true
+  }
+}

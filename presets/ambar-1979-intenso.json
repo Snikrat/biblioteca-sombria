@@ -1,0 +1,22 @@
+{
+  "filtro": "Âmbar 1979",
+  "filtroId": "ambar-1979",
+  "versao": 2,
+  "nome": "Intenso",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": 0.05,
+    "contrast": 18,
+    "saturation": -26,
+    "temperature": 30,
+    "tint": 8,
+    "highlights": -35,
+    "shadows": 15,
+    "sharpness": 5,
+    "grain": 40,
+    "fade": 38,
+    "gradeStrength": 85,
+    "skinProtect": 55,
+    "adaptive": true
+  }
+}

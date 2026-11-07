@@ -1,0 +1,22 @@
+{
+  "filtro": "Biblioteca Sombria",
+  "filtroId": "biblioteca-sombria",
+  "versao": 2,
+  "nome": "Original",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": -0.2,
+    "contrast": 25,
+    "saturation": -55,
+    "temperature": -8,
+    "tint": -4,
+    "highlights": -20,
+    "shadows": -35,
+    "sharpness": 15,
+    "grain": 12,
+    "fade": 6,
+    "gradeStrength": 60,
+    "skinProtect": 70,
+    "adaptive": true
+  }
+}

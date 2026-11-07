@@ -1,0 +1,22 @@
+{
+  "filtro": "Âmbar 1979",
+  "filtroId": "ambar-1979",
+  "versao": 2,
+  "nome": "Suave",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": 0,
+    "contrast": 8,
+    "saturation": -10,
+    "temperature": 12,
+    "tint": 3,
+    "highlights": -15,
+    "shadows": 5,
+    "sharpness": 5,
+    "grain": 18,
+    "fade": 16,
+    "gradeStrength": 40,
+    "skinProtect": 60,
+    "adaptive": true
+  }
+}

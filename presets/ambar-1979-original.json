@@ -1,0 +1,22 @@
+{
+  "filtro": "Âmbar 1979",
+  "filtroId": "ambar-1979",
+  "versao": 2,
+  "nome": "Original",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": 0.05,
+    "contrast": 12,
+    "saturation": -18,
+    "temperature": 22,
+    "tint": 6,
+    "highlights": -25,
+    "shadows": 10,
+    "sharpness": 5,
+    "grain": 28,
+    "fade": 26,
+    "gradeStrength": 60,
+    "skinProtect": 60,
+    "adaptive": true
+  }
+}

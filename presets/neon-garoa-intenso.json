@@ -1,0 +1,22 @@
+{
+  "filtro": "Neon Garoa",
+  "filtroId": "neon-garoa",
+  "versao": 2,
+  "nome": "Intenso",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": -0.25,
+    "contrast": 32,
+    "saturation": 20,
+    "temperature": -22,
+    "tint": 18,
+    "highlights": -40,
+    "shadows": -30,
+    "sharpness": 15,
+    "grain": 14,
+    "fade": 5,
+    "gradeStrength": 95,
+    "skinProtect": 65,
+    "adaptive": true
+  }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Filtros fotográficos — Biblioteca Sombria e outros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Instrument+Sans:wdth,wght@75..100,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="title">
+    <h1 id="lookName">Biblioteca Sombria</h1>
+    <p id="lookTagline">Frio e silencioso, com vermelhos contidos.</p>
+  </div>
+  <div class="top-actions" id="viewbar">
+    <button class="btn" id="changeImg">Trocar foto</button>
+  </div>
+</header>
+
+<div class="lab">
+  <nav class="strip" aria-label="Filtros">
+    <div class="frames" id="lookGrid"></div>
+  </nav>
+
+  <main class="stage" id="stage">
+    <label class="empty" id="drop">
+      <span class="empty-frame" aria-hidden="true"></span>
+      <strong>Escolha uma foto para começar</strong>
+      <span>Toque aqui ou arraste um arquivo JPG, PNG ou WebP.</span>
+      <input type="file" id="file" accept="image/jpeg,image/png,image/webp" hidden>
+    </label>
+
+    <figure class="print" id="viewer">
+      <canvas id="cvAfter"></canvas>
+      <canvas id="cvBefore"></canvas>
+      <div class="divider" id="divider"></div>
+      <span class="tag l" id="tagL">Antes</span><span class="tag r" id="tagR">Depois</span>
+    </figure>
+
+    <div class="stage-bar">
+      <div class="compare-tools">
+        <button class="btn quiet" id="modeSplit">Comparar lado a lado</button>
+        <button class="btn quiet" id="holdBefore">Segure para ver o original</button>
+      </div>
+      <p class="meta" id="meta"></p>
+    </div>
+  </main>
+
+  <aside class="panel">
+    <section>
+      <h2>Variação</h2>
+      <div class="segmented" id="presetChips"></div>
+      <div class="saved" id="savedList"></div>
+    </section>
+
+    <section>
+      <div class="row big"><label for="intensity">Intensidade</label><output id="intensityOut">100%</output>
+        <input type="range" id="intensity" min="0" max="100" step="1" value="100"></div>
+    </section>
+
+    <section>
+      <h2>Ajustes finos</h2>
+      <p class="hint">Dois cliques num controle voltam ao valor da variação.</p>
+      <div id="sliders"></div>
+    </section>
+
+    <details>
+      <summary>Cor e proteção de pele</summary>
+      <div id="sliders2"></div>
+      <label class="check"><input type="checkbox" id="adaptive" checked> Adaptar à luz da foto original</label>
+      <p class="hint" id="adaptNote"></p>
+      <button class="btn" id="resetBtn">Desfazer ajustes finos</button>
+    </details>
+
+    <details>
+      <summary>Salvar e reutilizar ajustes</summary>
+      <div class="inline"><input type="text" id="presetName" placeholder="Nome dos ajustes" maxlength="40"><button class="btn" id="savePreset">Salvar</button></div>
+      <div class="inline wrap">
+        <button class="btn" id="exportJson">Baixar JSON</button>
+        <button class="btn" id="copyJson">Copiar JSON</button>
+        <label class="btn" tabindex="0">Abrir JSON<input type="file" id="importFile" accept="application/json,.json" hidden></label>
+      </div>
+      <textarea id="jsonBox" placeholder="Ou cole aqui um JSON de ajustes" aria-label="JSON de ajustes"></textarea>
+      <button class="btn" id="applyJson">Usar JSON colado</button>
+    </details>
+
+    <section class="export">
+      <h2>Exportar</h2>
+      <div class="inline">
+        <select id="fmt" aria-label="Formato"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select>
+      </div>
+      <div class="row" id="qualRow"><label for="quality">Qualidade</label><output id="qualityOut">95</output>
+        <input type="range" id="quality" min="70" max="100" value="95"></div>
+      <button class="btn primary" id="exportBtn" disabled>Exportar no tamanho original</button>
+      <p class="hint">A foto é processada no seu aparelho e não é enviada para lugar nenhum.</p>
+    </section>
+  </aside>
+</div>
+
+<div class="overlay" id="busy" role="status"><div class="modal"><div class="spinner"></div><p id="busyText">Processando…</p></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="module" src="src/ui/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "filtro": "Neon Garoa",
+  "filtroId": "neon-garoa",
+  "versao": 2,
+  "nome": "Original",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": -0.15,
+    "contrast": 22,
+    "saturation": 10,
+    "temperature": -15,
+    "tint": 12,
+    "highlights": -30,
+    "shadows": -20,
+    "sharpness": 12,
+    "grain": 10,
+    "fade": 4,
+    "gradeStrength": 70,
+    "skinProtect": 70,
+    "adaptive": true
+  }
+}

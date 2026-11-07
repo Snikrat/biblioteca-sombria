@@ -1,0 +1,22 @@
+{
+  "filtro": "Neon Garoa",
+  "filtroId": "neon-garoa",
+  "versao": 2,
+  "nome": "Suave",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": -0.1,
+    "contrast": 15,
+    "saturation": 0,
+    "temperature": -8,
+    "tint": 6,
+    "highlights": -20,
+    "shadows": -12,
+    "sharpness": 10,
+    "grain": 6,
+    "fade": 3,
+    "gradeStrength": 45,
+    "skinProtect": 70,
+    "adaptive": true
+  }
+}
