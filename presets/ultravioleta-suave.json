@@ -1,0 +1,22 @@
+{
+  "filtro": "Ultravioleta",
+  "filtroId": "ultravioleta",
+  "versao": 2,
+  "nome": "Suave",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": -0.05,
+    "contrast": 8,
+    "saturation": -30,
+    "temperature": 0,
+    "tint": 0,
+    "highlights": -10,
+    "shadows": -5,
+    "sharpness": 8,
+    "grain": 6,
+    "fade": 3,
+    "gradeStrength": 40,
+    "skinProtect": 30,
+    "adaptive": true
+  }
+}

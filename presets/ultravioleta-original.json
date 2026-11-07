@@ -1,0 +1,22 @@
+{
+  "filtro": "Ultravioleta",
+  "filtroId": "ultravioleta",
+  "versao": 2,
+  "nome": "Original",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": -0.1,
+    "contrast": 12,
+    "saturation": -40,
+    "temperature": 0,
+    "tint": 0,
+    "highlights": -15,
+    "shadows": -10,
+    "sharpness": 8,
+    "grain": 8,
+    "fade": 4,
+    "gradeStrength": 60,
+    "skinProtect": 20,
+    "adaptive": true
+  }
+}

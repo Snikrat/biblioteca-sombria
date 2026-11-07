@@ -1,6 +1,6 @@
 # Filtros fotográficos — Biblioteca Sombria e outros
 
-Quatro filtros fotográficos que rodam 100% no navegador, sem dependências, e exportam na resolução original. Cada um tem os presets Suave, Original e Intenso.
+Cinco filtros fotográficos que rodam 100% no navegador, sem dependências, e exportam na resolução original. Cada um tem os presets Suave, Original e Intenso.
 
 | Filtro | Visual |
 |---|---|
@@ -8,6 +8,7 @@ Quatro filtros fotográficos que rodam 100% no navegador, sem dependências, e e
 | **Âmbar 1979** | filme analógico quente: pretos lavados, verdes oliva, altas luzes creme, grão aparente |
 | **Sala Escura** | noir quase preto e branco, alto contraste, só o vermelho sobrevive discreto |
 | **Neon Garoa** | noite chuvosa / cyberpunk: sombras azul-petróleo profundas, vermelhos → magenta, brilho rosado |
+| **Ultravioleta** | quarto banhado em luz roxa: imagem quase monocromática em violeta, do preto ao lilás |
 
 O seletor mostra a sua própria foto em miniatura com cada filtro aplicado.
 
@@ -42,7 +43,7 @@ src/
     grading.js          color grading por faixa de luminância
     lut.js              monta a LUT 3D com todo o tratamento de cor e aplica por interpolação trilinear
     detail.js           nitidez na luminância (limiar anti-ruído, teto anti-halo) e granulação
-    looks.js            definição dos 4 filtros (presets, faixas HSL, cores do grading, curva)
+    looks.js            definição dos filtros (presets, faixas HSL, cores do grading, curva)
     presets.js          controles e JSON de preset
     worker.js           processamento em resolução original fora da thread principal
     index.js            API pública (processImage)
@@ -63,7 +64,7 @@ O mesmo pipeline serve para todos os filtros; o que muda entre eles vem de `look
 2. **Curva tonal** na luminância, preservando a cor: sombras multiplicativas (mantêm textura em cabelo, roupa escura e tatuagens), realces e curva S de contraste.
 3. **HSL seletivo** por faixa de matiz (vermelho, laranja, amarelo, verde, ciano, azul, roxo, magenta), definido por filtro. A **máscara de pele** reduz esses ajustes nos tons de pele.
 4. **Saturação global** preservando a luminância, menor na pele.
-5. **Color grading por luminância**: uma cor para sombras, meios-tons e altas luzes, definida por filtro.
+5. **Color grading por luminância**: uma cor para sombras, meios-tons e altas luzes, definida por filtro. Filtros quase monocromáticos (Ultravioleta) usam também uma escala de cor (`grading.map`) misturada conforme a luminosidade.
 6. **Compressão de brancos + fade**: pretos nunca chegam a 0 puro, brancos sem estourar.
 7. **Intensidade global** (0–100%) mistura com o original.
 8. **Nitidez + granulação** aplicadas após a LUT.
@@ -84,7 +85,7 @@ processImage(img.data, img.data, w, h, presetsFor('ambar-1979').original, 1 /* i
 ctx.putImageData(img, 0, 0);
 ```
 
-IDs dos filtros: `biblioteca-sombria`, `ambar-1979`, `sala-escura`, `neon-garoa`.
+IDs dos filtros: `biblioteca-sombria`, `ambar-1979`, `sala-escura`, `neon-garoa`, `ultravioleta`.
 
 ## Criar um filtro novo
 

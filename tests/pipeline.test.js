@@ -109,3 +109,10 @@ test('Neon Garoa: sombras azuladas e altas luzes rosadas', () => {
   assert.ok(dark[2] > dark[0] + 0.03);
   assert.ok(light[0] > light[1] && light[2] > light[1]);
 });
+
+test('Ultravioleta: tudo vira violeta, do escuro ao claro', () => {
+  for (const rgb of [[0.1, 0.1, 0.1], [0.5, 0.45, 0.4], [0.2, 0.6, 0.3], [0.85, 0.85, 0.85]]) {
+    const [r, g, b] = lookColor('ultravioleta', ...rgb);
+    assert.ok(b > r && r > g, `violeta esperado para ${rgb}`);
+  }
+});

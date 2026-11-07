@@ -1,0 +1,22 @@
+{
+  "filtro": "Ultravioleta",
+  "filtroId": "ultravioleta",
+  "versao": 2,
+  "nome": "Intenso",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": -0.2,
+    "contrast": 18,
+    "saturation": -50,
+    "temperature": 0,
+    "tint": 0,
+    "highlights": -20,
+    "shadows": -20,
+    "sharpness": 10,
+    "grain": 10,
+    "fade": 4,
+    "gradeStrength": 85,
+    "skinProtect": 10,
+    "adaptive": true
+  }
+}

@@ -122,6 +122,32 @@ export const LOOKS = {
     },
     tone: { knee: 0.78, fadeTop: 0.004, shadowDesat: 0.10, skinSatRelief: 0.5, warmNeutralize: 0 },
   },
+
+  'ultravioleta': {
+    name: 'Ultravioleta',
+    tagline: 'Quarto banhado em luz roxa, quase monocromático.',
+    swatch: ['#0e0524', '#2d1264', '#5c2ec8', '#7c48ec', '#cdb2ff'],
+    presets: {
+      suave:    { exposure: -0.05, contrast: 8,  saturation: -30, temperature: 0, tint: 0, highlights: -10, shadows: -5,  sharpness: 8,  grain: 6,  fade: 3, gradeStrength: 40, skinProtect: 30, adaptive: true },
+      original: { exposure: -0.10, contrast: 12, saturation: -40, temperature: 0, tint: 0, highlights: -15, shadows: -10, sharpness: 8,  grain: 8,  fade: 4, gradeStrength: 60, skinProtect: 20, adaptive: true },
+      intenso:  { exposure: -0.20, contrast: 18, saturation: -50, temperature: 0, tint: 0, highlights: -20, shadows: -20, sharpness: 10, grain: 10, fade: 4, gradeStrength: 85, skinProtect: 10, adaptive: true },
+    },
+    bands: [],
+    grading: {
+      shadows: [0, 0, 0], mids: [0, 0, 0], highlights: [0, 0, 0],
+      // Escala medida na foto de referência: o mesmo violeta (~258°) do preto ao claro
+      map: [
+        [0.00, 14, 5, 36],
+        [0.15, 45, 18, 100],
+        [0.35, 92, 46, 200],
+        [0.60, 124, 72, 236],
+        [0.80, 152, 100, 246],
+        [1.00, 205, 178, 255],
+      ],
+      mapMix: 0.85,
+    },
+    tone: { knee: 0.85, fadeTop: 0.003, shadowDesat: 0, skinSatRelief: 0.2, warmNeutralize: 0 },
+  },
 };
 
 export const DEFAULT_LOOK = 'biblioteca-sombria';
