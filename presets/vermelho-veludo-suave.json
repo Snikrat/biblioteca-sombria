@@ -1,0 +1,22 @@
+{
+  "filtro": "Vermelho Veludo",
+  "filtroId": "vermelho-veludo",
+  "versao": 2,
+  "nome": "Suave",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": -0.8,
+    "contrast": 38,
+    "saturation": -35,
+    "temperature": 4,
+    "tint": 0,
+    "highlights": -10,
+    "shadows": -60,
+    "sharpness": 12,
+    "grain": 6,
+    "fade": -10,
+    "gradeStrength": 40,
+    "skinProtect": 70,
+    "adaptive": true
+  }
+}

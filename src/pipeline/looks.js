@@ -3,7 +3,8 @@
  *
  * Cada filtro descreve:
  *  - presets: Suave / Original / Intenso (valores dos controles)
- *  - bands:   ajustes HSL por faixa de matiz (Δsat, Δlum, deslocamento de matiz em graus)
+ *  - bands:   ajustes HSL por faixa de matiz (Δsat, Δlum, deslocamento de matiz em graus,
+ *             keepTone: 0..1 protege a cor do escurecimento da curva tonal)
  *  - grading: deslocamento RGB somado em sombras, meios-tons e altas luzes
  *  - tone:    knee (início da compressão dos brancos), fadeTop (quanto o fade escurece os brancos),
  *             shadowDesat (neutraliza sombras profundas), skinSatRelief (quanto a pele escapa da
@@ -12,7 +13,7 @@
  * Para criar um filtro novo, copie um bloco, mude o id e ajuste os números.
  */
 
-const band = (center, width, sat, lum = 0, hue = 0) => ({ center, width, sat, lum, hue });
+const band = (center, width, sat, lum = 0, hue = 0, keepTone = 0) => ({ center, width, sat, lum, hue, keepTone });
 
 export const LOOKS = {
   'biblioteca-sombria': {
@@ -180,6 +181,70 @@ export const LOOKS = {
       mapMix: 0.75,
     },
     tone: { knee: 0.70, fadeTop: 0.004, shadowDesat: 0, skinSatRelief: 0.4, warmNeutralize: 0.4 },
+  },
+
+  'vermelho-veludo': {
+    name: 'Vermelho Veludo',
+    tagline: 'Escuridão quase total, só o vermelho acende.',
+    swatch: ['#060403', '#1c1512', '#3a2e29', '#9e1f22', '#e6ddd4'],
+    presets: {
+      suave:    { exposure: -0.80, contrast: 38, saturation: -35, temperature: 4, tint: 0, highlights: -10, shadows: -60, sharpness: 12, grain: 6,  fade: -10, gradeStrength: 40, skinProtect: 70, adaptive: true },
+      original: { exposure: -1.30, contrast: 55, saturation: -50, temperature: 6, tint: 0, highlights: -10, shadows: -80, sharpness: 15, grain: 8,  fade: -15, gradeStrength: 60, skinProtect: 65, adaptive: true },
+      intenso:  { exposure: -1.70, contrast: 68, saturation: -62, temperature: 8, tint: 0, highlights: -10, shadows: -95, sharpness: 18, grain: 10, fade: -20, gradeStrength: 85, skinProtect: 60, adaptive: true },
+    },
+    bands: [
+      band(0, 30, 1.20, 0.05, 0, 0.85),  // vermelho: o único que acende — protegido do escurecimento
+      band(30, 22, -0.15, 0.04),         // laranja / pele pálida e quente
+      band(58, 26, -0.55, -0.10),        // amarelo some
+      band(120, 50, -0.45, -0.15),       // verde escuro e apagado
+      band(180, 30, -0.60, -0.15),
+      band(222, 40, -0.60, -0.20),       // azul some no preto
+      band(275, 30, -0.50, -0.10),
+      band(330, 26, 0.30, 0.05),         // magenta puxado para o vermelho
+    ],
+    grading: {
+      shadows: [0.006, 0.002, -0.002],     // preto levemente quente
+      mids: [0.010, 0.004, -0.006],        // meios-tons neutros-quentes
+      highlights: [0, 0, 0],               // brancos limpos
+    },
+    tone: { knee: 0.88, fadeTop: 0, shadowDesat: 0.30, skinSatRelief: 0.5, warmNeutralize: 0 },
+  },
+
+  'capela-de-pedra': {
+    name: 'Capela de Pedra',
+    tagline: 'Pedra antiga, marrom-sépia e flores desbotadas.',
+    swatch: ['#140f0a', '#2c2319', '#6f5442', '#8c6a72', '#dfd6ca'],
+    presets: {
+      suave:    { exposure: -0.35, contrast: 14, saturation: -25, temperature: 8,  tint: 2, highlights: -25, shadows: -20, sharpness: 10, grain: 10, fade: 2, gradeStrength: 40, skinProtect: 65, adaptive: true },
+      original: { exposure: -0.55, contrast: 20, saturation: -35, temperature: 12, tint: 4, highlights: -35, shadows: -30, sharpness: 12, grain: 14, fade: 2, gradeStrength: 60, skinProtect: 60, adaptive: true },
+      intenso:  { exposure: -0.75, contrast: 26, saturation: -45, temperature: 16, tint: 6, highlights: -45, shadows: -40, sharpness: 14, grain: 20, fade: 3, gradeStrength: 85, skinProtect: 55, adaptive: true },
+    },
+    bands: [
+      band(0, 28, -0.25, -0.05, 6),      // vermelho → tijolo
+      band(30, 22, 0, 0.02),             // pele e cabelo dourados
+      band(58, 26, -0.20, -0.04, -8),    // amarelo → âmbar
+      band(120, 50, -0.65, -0.12, -40),  // verde → oliva-marrom (musgo)
+      band(180, 30, -0.70, -0.08),
+      band(222, 40, -0.75, -0.05),       // céu e azul viram pedra
+      band(275, 30, -0.40, 0, 25),       // roxo → malva
+      band(330, 30, -0.35, -0.05, 8),    // flores rosa-malva desbotadas
+    ],
+    grading: {
+      shadows: [0, 0, 0], mids: [0, 0, 0], highlights: [0, 0, 0],
+      // Escala medida na foto de referência: sépia do preto ao marfim
+      map: [
+        [0.00, 16, 12, 8],
+        [0.10, 44, 35, 25],
+        [0.20, 77, 59, 44],
+        [0.30, 111, 84, 66],
+        [0.45, 156, 120, 99],
+        [0.60, 193, 159, 136],
+        [0.80, 223, 214, 202],
+        [1.00, 238, 232, 222],
+      ],
+      mapMix: 0.8,
+    },
+    tone: { knee: 0.80, fadeTop: 0.004, shadowDesat: 0, skinSatRelief: 0.5, warmNeutralize: 0 },
   },
 };
 

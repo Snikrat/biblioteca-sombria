@@ -1,0 +1,22 @@
+{
+  "filtro": "Capela de Pedra",
+  "filtroId": "capela-de-pedra",
+  "versao": 2,
+  "nome": "Suave",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": -0.35,
+    "contrast": 14,
+    "saturation": -25,
+    "temperature": 8,
+    "tint": 2,
+    "highlights": -25,
+    "shadows": -20,
+    "sharpness": 10,
+    "grain": 10,
+    "fade": 2,
+    "gradeStrength": 40,
+    "skinProtect": 65,
+    "adaptive": true
+  }
+}

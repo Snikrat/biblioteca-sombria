@@ -123,3 +123,17 @@ test('Penumbra: escuro, frio e com brancos baixos', () => {
   assert.ok(mid[2] > mid[0], 'meios-tons frios');
   assert.ok(lum(mid) < 0.4, 'imagem escura');
 });
+
+test('Vermelho Veludo: pretos profundos e só o vermelho saturado', () => {
+  assert.ok(lum(lookColor('vermelho-veludo', 0.2, 0.2, 0.2)) < 0.08, 'sombras afundam');
+  const red = lookColor('vermelho-veludo', 0.75, 0.15, 0.12), green = lookColor('vermelho-veludo', 0.3, 0.6, 0.35);
+  assert.ok(sat(red) > 0.3, 'vermelho vivo');
+  assert.ok(sat(green) < sat(red) / 3, 'outras cores apagadas');
+});
+
+test('Capela de Pedra: tons sépia do escuro ao marfim', () => {
+  for (const rgb of [[0.2, 0.2, 0.2], [0.5, 0.55, 0.6], [0.3, 0.6, 0.3]]) {
+    const [r, g, b] = lookColor('capela-de-pedra', ...rgb);
+    assert.ok(r > g && g > b, `sépia esperado para ${rgb}`);
+  }
+});

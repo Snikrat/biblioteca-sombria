@@ -1,0 +1,22 @@
+{
+  "filtro": "Capela de Pedra",
+  "filtroId": "capela-de-pedra",
+  "versao": 2,
+  "nome": "Intenso",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": -0.75,
+    "contrast": 26,
+    "saturation": -45,
+    "temperature": 16,
+    "tint": 6,
+    "highlights": -45,
+    "shadows": -40,
+    "sharpness": 14,
+    "grain": 20,
+    "fade": 3,
+    "gradeStrength": 85,
+    "skinProtect": 55,
+    "adaptive": true
+  }
+}

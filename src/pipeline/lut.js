@@ -6,7 +6,7 @@
 import { clamp, smoothstep, toLinear, toSrgb, luma, rgbToHsl, hslToRgb } from './colorspace.js';
 import { adaptFactor } from './analyze.js';
 import { makeToneCurve, highlightRolloff, fadeLimits } from './tone.js';
-import { bandAdjustments, skinMask } from './hsl.js';
+import { bandAdjustments, bandToneKeep, skinMask } from './hsl.js';
 import { gradeByLuminance } from './grading.js';
 import { getLook } from './looks.js';
 
@@ -27,6 +27,7 @@ export function makeColorFunction(p, stats, look) {
   const lowRatio = tone(1e-3) / 1e-3;
   const S = p.saturation / 100, sp = p.skinProtect / 100, st = p.gradeStrength / 60;
   const { floor, top } = fadeLimits(p.fade, T.fadeTop);
+  const hasKeep = L0.bands.some((b) => b.keepTone);
 
   return function color(r0, g0, b0) {
     // 1) Exposição + balanço de branco em luz linear
@@ -36,7 +37,13 @@ export function makeColorFunction(p, stats, look) {
 
     // 2) Curva tonal aplicada à luminância, preservando a cor
     const L = luma(r, g, b);
-    const ratio = L > 1e-3 ? tone(L) / L : lowRatio;
+    let ratio = L > 1e-3 ? tone(L) / L : lowRatio;
+    if (hasKeep) {
+      const [h0, s0] = rgbToHsl(clamp(r, 0, 1), clamp(g, 0, 1), clamp(b, 0, 1));
+      const keep = bandToneKeep(h0, s0, L0.bands);
+      // a cor protegida mantém o brilho de antes da exposição/curva
+      if (keep > 0) ratio += (toSrgb(toLinear(L) / expMul) / Math.max(L, 1e-3) - ratio) * keep;
+    }
     r = clamp(r * ratio, 0, 1); g = clamp(g * ratio, 0, 1); b = clamp(b * ratio, 0, 1);
 
     // 3) HSL seletivo com proteção de pele

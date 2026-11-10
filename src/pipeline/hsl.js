@@ -29,3 +29,16 @@ export function bandAdjustments(h, bands) {
   }
   return { dSat, dLum, dHue };
 }
+
+/**
+ * Quanto a cor escapa da curva tonal (0..1), somando o "keepTone" das faixas.
+ * Permite que uma cor (ex.: o vermelho do Vermelho Veludo) não afunde junto com as sombras.
+ */
+export function bandToneKeep(h, s, bands) {
+  let keep = 0;
+  for (const b of bands) {
+    if (!b.keepTone) continue;
+    keep += bandWeight(h, b.center, b.width) * b.keepTone;
+  }
+  return Math.min(1, keep) * smoothstep(0.15, 0.45, s);
+}

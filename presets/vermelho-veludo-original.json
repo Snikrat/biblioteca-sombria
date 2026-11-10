@@ -1,0 +1,22 @@
+{
+  "filtro": "Vermelho Veludo",
+  "filtroId": "vermelho-veludo",
+  "versao": 2,
+  "nome": "Original",
+  "intensidade": 100,
+  "parametros": {
+    "exposure": -1.3,
+    "contrast": 55,
+    "saturation": -50,
+    "temperature": 6,
+    "tint": 0,
+    "highlights": -10,
+    "shadows": -80,
+    "sharpness": 15,
+    "grain": 8,
+    "fade": -15,
+    "gradeStrength": 60,
+    "skinProtect": 65,
+    "adaptive": true
+  }
+}
