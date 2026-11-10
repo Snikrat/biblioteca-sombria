@@ -33,6 +33,12 @@
       <input type="file" id="file" accept="image/jpeg,image/png,image/webp" hidden>
     </label>
 
+    <div class="quick" id="quick">
+      <div class="segmented" id="presetChips" aria-label="Variação"></div>
+      <div class="row big"><label for="intensity">Intensidade</label><output id="intensityOut">100%</output>
+        <input type="range" id="intensity" min="0" max="100" step="1" value="100"></div>
+    </div>
+
     <figure class="print" id="viewer">
       <canvas id="cvAfter"></canvas>
       <canvas id="cvBefore"></canvas>
@@ -51,14 +57,8 @@
 
   <aside class="panel">
     <section>
-      <h2>Variação</h2>
-      <div class="segmented" id="presetChips"></div>
+      <h2>Ajustes salvos</h2>
       <div class="saved" id="savedList"></div>
-    </section>
-
-    <section>
-      <div class="row big"><label for="intensity">Intensidade</label><output id="intensityOut">100%</output>
-        <input type="range" id="intensity" min="0" max="100" step="1" value="100"></div>
     </section>
 
     <section>

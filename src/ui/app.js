@@ -119,10 +119,7 @@ function renderPresetChips() {
     });
     item.append(pick, del); list.appendChild(item);
   }
-  if (state.presetId === null) {
-    const n = document.createElement('p'); n.className = 'note'; n.textContent = 'Ajustes alterados e ainda não salvos.';
-    list.appendChild(n);
-  }
+
 }
 
 function applyPreset(id) {
@@ -249,6 +246,7 @@ async function loadFile(file) {
 
     $('drop').style.display = 'none'; $('viewer').style.display = 'block'; $('viewbar').style.display = 'flex';
     document.querySelector('.stage-bar').style.display = 'flex';
+    $('quick').style.display = 'flex';
     $('exportBtn').disabled = false;
     $('meta').textContent = `${state.fullW} × ${state.fullH} px. A prévia usa ${state.pw} × ${state.ph}; a exportação, o tamanho original.`;
     updateAdaptNote(); render(); renderThumbs(); compare.refresh();

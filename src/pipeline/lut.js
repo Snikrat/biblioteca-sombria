@@ -39,8 +39,8 @@ export function makeColorFunction(p, stats, look) {
     const L = luma(r, g, b);
     let ratio = L > 1e-3 ? tone(L) / L : lowRatio;
     if (hasKeep) {
-      const [h0, s0] = rgbToHsl(clamp(r, 0, 1), clamp(g, 0, 1), clamp(b, 0, 1));
-      const keep = bandToneKeep(h0, s0, L0.bands);
+      const [h0, s0, l0] = rgbToHsl(clamp(r, 0, 1), clamp(g, 0, 1), clamp(b, 0, 1));
+      const keep = bandToneKeep(h0, s0, L0.bands) * (1 - skinMask(h0, s0, l0));
       // a cor protegida mantém o brilho de antes da exposição/curva
       if (keep > 0) ratio += (toSrgb(toLinear(L) / expMul) / Math.max(L, 1e-3) - ratio) * keep;
     }

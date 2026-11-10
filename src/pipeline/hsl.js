@@ -40,5 +40,5 @@ export function bandToneKeep(h, s, bands) {
     if (!b.keepTone) continue;
     keep += bandWeight(h, b.center, b.width) * b.keepTone;
   }
-  return Math.min(1, keep) * smoothstep(0.15, 0.45, s);
+  return Math.min(1, keep) * smoothstep(0.45, 0.75, s);
 }
